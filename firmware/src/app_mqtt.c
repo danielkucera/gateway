@@ -34,7 +34,9 @@ uint32_t localStatusCounterSinceBoot = 0; // Used for logging only
 uint32_t startTick                   = 0;
 uint32_t retryTick                   = 0;
 uint32_t rx_pkt_cnt                  = 0;
+uint32_t rx_pkt_cnt_ok               = 0;
 uint32_t tx_pkt_cnt                  = 0;
+uint32_t tx_pkt_cnt_ok               = 0;
 
 uint32_t lastLoraUplinkTick        = 0;
 bool     loraUplinkIdleOneDaySent  = false;
@@ -341,9 +343,9 @@ int sendStatus()
     status.has_tx_in     = 1;
     status.has_tx_ok     = 1;
     status.rx_in         = rx_pkt_cnt;
-    status.rx_ok         = rx_pkt_cnt;
+    status.rx_ok         = rx_pkt_cnt_ok;
     status.tx_in         = tx_pkt_cnt;
-    status.tx_ok         = tx_pkt_cnt;
+    status.tx_ok         = tx_pkt_cnt_ok;
 
     const bootloader_version_t* pBootloaderVersion   = BootloaderVersion_Get();
     const char                  ts_fmt_str[]         = "%Y-%m-%dT%H:%M:%SZ";
@@ -398,6 +400,7 @@ int sendUplink()
     Router__UplinkMessage up          = ROUTER__UPLINK_MESSAGE__INIT;
     loraRXPacket          recv_packet = {0};
     dequeueLoRaRX(&recv_packet);
+    rx_pkt_cnt++;
     up.has_payload  = 1;
     up.payload.len  = recv_packet.payload_size;
     up.payload.data = recv_packet.payload;
@@ -522,7 +525,7 @@ int sendUplink()
         enqueueLoRaRX(&recv_packet);
         return err;
     }
-    rx_pkt_cnt++;
+    rx_pkt_cnt_ok++;
     return err;
 }
 
@@ -614,6 +617,7 @@ void handleDownlink(Router__DownlinkMessage* message, void* arg)
 
     pkt.payload_size = message->payload.len;
     enqueueLoRaTX(&pkt);
+    tx_pkt_cnt_ok++;
 
     SYS_DEBUG(SYS_ERROR_INFO, "MQTT: Received DOWNLINK\r\n");
 }
