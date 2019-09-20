@@ -512,7 +512,7 @@ SYS_CONSOLE_INIT consUsartInit0 =
 SYS_DEBUG_INIT debugInit =
 {
     .moduleInit = {0},
-    .errorLevel = SYS_ERROR_INFO
+    .errorLevel = SYS_ERROR_DEBUG
 };
 // </editor-fold>
 //<editor-fold defaultstate="collapsed" desc="SYS_DEVCON Initialization Data">
