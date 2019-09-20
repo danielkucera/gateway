@@ -453,6 +453,14 @@ HTTP_IO_RESULT TCPIP_HTTP_GetExecute(HTTP_CONN_HANDLE connHandle)
         {
             // impossible to get here
         }
+    } else if(!memcmp(filename, "reboot.cgi", 10))
+    {
+	    // we will loop here and wait for watchdog to kick in
+	    RebootWithMessage("Reboot on user request");
+
+	    //this should never be reached, if so wait for watchdog
+	    while (1) {
+	    }
     }
 
     return HTTP_IO_DONE;
