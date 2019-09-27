@@ -19,8 +19,8 @@ typedef enum
 } STATE_t;
 
 #define WIFI_CONNECT_TIMEOUT 10 // seconds before switching to AP mode
-#define PING_TIMEOUT 60          // seconds before retry a ping
-#define PING_RETRIES 2          // retries before giving up
+#define PING_TIMEOUT 2          // seconds before retry a ping
+#define PING_RETRIES 10         // retries before giving up
 #define WIFI_RETRY_TIMEOUT 120  // seconds before retrying INFRA mode again if WiFi data valid
 #define NTP_TIMEOUT 20          // seconds trying to receive NTP before waiting for network again
 
@@ -162,7 +162,7 @@ void SSMWaitForInternet_Tasks(void)
             break;
 
         case STATE_SETTLE:
-            if((SYS_TMR_TickCountGet() - settleStartTick) >= (SYS_TMR_TickCounterFrequencyGet() * 5))
+            if((SYS_TMR_TickCountGet() - settleStartTick) >= (SYS_TMR_TickCounterFrequencyGet() * 1))
             {
                 _changeState(STATE_PING_PROBE);
             }
@@ -177,6 +177,7 @@ void SSMWaitForInternet_Tasks(void)
                 googledns.v[2]      = 4;
                 googledns.v[3]      = 4;
 
+                pingStartTick = SYS_TMR_TickCountGet();
                 ping_probe_reply_received = false;
 
                 SYS_PRINT("INET: Ping probe\r\n");
@@ -184,13 +185,16 @@ void SSMWaitForInternet_Tasks(void)
                    ICMP_ECHO_OK)
                 {
                     SYS_PRINT("INET: Error sending probe on WiFi\r\n");
+                } else {
+                    ping_probe_sent = true;
                 }
                 if(TCPIP_ICMP_EchoRequestSend(TCPIP_STACK_IndexToNet(ETH_INTERFACE_NUM), &googledns, 0, 0x1234) !=
                    ICMP_ECHO_OK)
                 {
                     SYS_PRINT("INET: Error sending probe on Eth\r\n");
+                } else {
+                    ping_probe_sent = true;
                 }
-                ping_probe_sent = true;
             }
             else if(ping_probe_reply_received)
             {
@@ -212,9 +216,6 @@ void SSMWaitForInternet_Tasks(void)
                    (SYS_TMR_TickCounterFrequencyGet() * PING_TIMEOUT)) // REVIEW: Use isElapsed kind of function
                 {
                     SYS_PRINT("INET: Ping Timeout of :%d seconds\r\n", PING_TIMEOUT);
-                    pingStartTick             = SYS_TMR_TickCountGet();
-                    ping_probe_sent           = false;
-                    ping_probe_reply_received = false;
                     if(ping_retry >= PING_RETRIES)
                     {
                         // TODO: find a proper recovery -> _changeState(STATE_WAIT_FOR_NETWORK);
@@ -222,6 +223,7 @@ void SSMWaitForInternet_Tasks(void)
                         
                     }
                     ping_retry++;
+                    ping_probe_sent = false;
                 }
             }
             break;
