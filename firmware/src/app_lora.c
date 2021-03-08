@@ -865,12 +865,12 @@ static void receive_callback(uint8_t *data, size_t size)
 
     if (parseRXPacket(data, &rxpkt, size)) 
     {
+        printRXPacket(&rxpkt);
         if(rxpkt.pkt_status == 0x10 || rxpkt.pkt_status == 0x01)
         {
             enqueueLoRaRX(&rxpkt); // package is copied in the queue
             sendRXReply(true);
             GATEWAY_MODULE_INTERFACE_LOG("LORA: Accepted packet\r\n");
-            // printRXPacket(&rxpkt);
             last_rx_timestamp = rxpkt.timestamp;
         }
         else
