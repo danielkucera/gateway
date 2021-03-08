@@ -66,7 +66,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include <system_config.h>
 #include <system_definitions.h>
-#include "connector.h"
 
 #include "app_serialflash.h"
 
@@ -412,13 +411,6 @@ extern "C"
         APP_STATES_BLE state;
         DRV_HANDLE     USARTHandle;
     } APP_DATA_BLE;
-
-    /* MQTT */
-    typedef struct
-    {
-        APP_STATES_MQTT state;
-        TTN*            ttn;
-    } APP_DATA_MQTT;
 
     typedef struct IFChain
     {

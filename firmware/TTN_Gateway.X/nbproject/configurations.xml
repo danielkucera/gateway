@@ -10,7 +10,6 @@
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
               <logicalFolder name="f1" displayName="net" projectFiles="true">
                 <logicalFolder name="f1" displayName="pres" projectFiles="true">
-                  <itemPath>../src/system_config/TTN_Gateway_v1/framework/net/pres/certs_test.h</itemPath>
                   <itemPath>../src/system_config/TTN_Gateway_v1/framework/net/pres/net_pres_enc_glue.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -25,15 +24,6 @@
             <itemPath>../src/system_config/TTN_Gateway_v1/system_definitions.h</itemPath>
           </logicalFolder>
         </logicalFolder>
-        <logicalFolder name="ttn-gateway-connector"
-                       displayName="ttn-gateway-connector"
-                       projectFiles="true">
-          <logicalFolder name="src" displayName="src" projectFiles="true">
-            <itemPath>../vendor/ttn-gateway-connector/src/connector.h</itemPath>
-            <itemPath>../vendor/ttn-gateway-connector/src/network.h</itemPath>
-            <itemPath>../vendor/ttn-gateway-connector/src/session.h</itemPath>
-          </logicalFolder>
-        </logicalFolder>
         <itemPath>../src/app.h</itemPath>
         <itemPath>../src/app_commands.h</itemPath>
         <itemPath>../src/subsystem_controller.h</itemPath>
@@ -42,7 +32,6 @@
         <itemPath>../src/app_configuration.h</itemPath>
         <itemPath>../src/app_frequencyplan.h</itemPath>
         <itemPath>../src/lora.h</itemPath>
-        <itemPath>../src/app_mqtt.h</itemPath>
         <itemPath>../src/app_lora.h</itemPath>
         <itemPath>../vendor/jsmn/jsmn.h</itemPath>
         <itemPath>../vendor/json-builder/json-builder.h</itemPath>
@@ -107,7 +96,6 @@
             <itemPath>../vendor/harmony/framework/crypto/src/visibility.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/asn_public.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/camellia.h</itemPath>
-            <itemPath>../vendor/harmony/framework/crypto/src/certs_test.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/dh.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/dsa.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/ec.h</itemPath>
@@ -530,48 +518,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f3" displayName="app" projectFiles="true">
-        <logicalFolder name="paho.mqtt.embedded-c"
-                       displayName="paho.mqtt.embedded-c"
-                       projectFiles="true">
-          <logicalFolder name="Debug" displayName="Debug" projectFiles="true">
-            <logicalFolder name="src" displayName="src" projectFiles="true">
-            </logicalFolder>
-          </logicalFolder>
-          <logicalFolder name="MQTTClient-C"
-                         displayName="MQTTClient-C"
-                         projectFiles="true">
-            <logicalFolder name="src" displayName="src" projectFiles="true">
-              <logicalFolder name="Harmony" displayName="Harmony" projectFiles="true">
-                <itemPath>../vendor/paho.mqtt.embedded-c/MQTTClient-C/src/Harmony/MQTTHarmony.c</itemPath>
-                <itemPath>../vendor/paho.mqtt.embedded-c/MQTTClient-C/src/Harmony/MQTTHarmony.h</itemPath>
-              </logicalFolder>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTClient-C/src/MQTTClient.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTClient-C/src/MQTTClient.h</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTClient-C/src/MQTTErrors.h</itemPath>
-            </logicalFolder>
-          </logicalFolder>
-          <logicalFolder name="MQTTPacket" displayName="MQTTPacket" projectFiles="true">
-            <logicalFolder name="src" displayName="src" projectFiles="true">
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTConnect.h</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTConnectClient.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTConnectServer.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTDeserializePublish.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTFormat.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTFormat.h</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTPacket.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTPacket.h</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTPublish.h</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSerializePublish.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSubscribe.h</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSubscribeClient.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSubscribeServer.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTUnsubscribe.h</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTUnsubscribeClient.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/MQTTUnsubscribeServer.c</itemPath>
-              <itemPath>../vendor/paho.mqtt.embedded-c/MQTTPacket/src/StackTrace.h</itemPath>
-            </logicalFolder>
-          </logicalFolder>
-        </logicalFolder>
         <logicalFolder name="protobuf-c" displayName="protobuf-c" projectFiles="true">
           <logicalFolder name="protobuf-c" displayName="protobuf-c" projectFiles="true">
             <itemPath>../vendor/protobuf-c/protobuf-c/protobuf-c.c</itemPath>
@@ -619,70 +565,6 @@
             <itemPath>../src/system_config/TTN_Gateway_v1/rtos_hooks.c</itemPath>
           </logicalFolder>
         </logicalFolder>
-        <logicalFolder name="ttn-gateway-connector"
-                       displayName="ttn-gateway-connector"
-                       projectFiles="true">
-          <logicalFolder name="src" displayName="src" projectFiles="true">
-            <logicalFolder name="github.com" displayName="github.com" projectFiles="true">
-              <logicalFolder name="gogo" displayName="gogo" projectFiles="true">
-                <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
-                  <logicalFolder name="gogoproto" displayName="gogoproto" projectFiles="true">
-                    <itemPath>../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/gogoproto/gogo.pb-c.c</itemPath>
-                    <itemPath>../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/gogoproto/gogo.pb-c.h</itemPath>
-                  </logicalFolder>
-                  <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
-                    <logicalFolder name="google" displayName="google" projectFiles="true">
-                      <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
-                        <itemPath>../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/protobuf/google/protobuf/descriptor.pb-c.c</itemPath>
-                        <itemPath>../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/protobuf/google/protobuf/empty.pb-c.c</itemPath>
-                        <itemPath>../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/protobuf/google/protobuf/descriptor.pb-c.h</itemPath>
-                        <itemPath>../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/protobuf/google/protobuf/empty.pb-c.h</itemPath>
-                      </logicalFolder>
-                    </logicalFolder>
-                  </logicalFolder>
-                </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="TheThingsNetwork"
-                             displayName="TheThingsNetwork"
-                             projectFiles="true">
-                <logicalFolder name="gateway-connector-bridge"
-                               displayName="gateway-connector-bridge"
-                               projectFiles="true">
-                  <logicalFolder name="types" displayName="types" projectFiles="true">
-                    <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/gateway-connector-bridge/types/types.pb-c.c</itemPath>
-                    <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/gateway-connector-bridge/types/types.pb-c.h</itemPath>
-                  </logicalFolder>
-                </logicalFolder>
-                <logicalFolder name="ttn" displayName="ttn" projectFiles="true">
-                  <logicalFolder name="api" displayName="api" projectFiles="true">
-                    <logicalFolder name="gateway" displayName="gateway" projectFiles="true">
-                      <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/gateway/gateway.pb-c.c</itemPath>
-                      <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/gateway/gateway.pb-c.h</itemPath>
-                    </logicalFolder>
-                    <logicalFolder name="protocol" displayName="protocol" projectFiles="true">
-                      <logicalFolder name="lorawan" displayName="lorawan" projectFiles="true">
-                        <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/protocol/lorawan/lorawan.pb-c.c</itemPath>
-                        <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/protocol/lorawan/lorawan.pb-c.h</itemPath>
-                      </logicalFolder>
-                      <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/protocol/protocol.pb-c.c</itemPath>
-                      <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/protocol/protocol.pb-c.h</itemPath>
-                    </logicalFolder>
-                    <logicalFolder name="router" displayName="router" projectFiles="true">
-                      <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/router/router.pb-c.c</itemPath>
-                      <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/router/router.pb-c.h</itemPath>
-                    </logicalFolder>
-                    <logicalFolder name="f1" displayName="trace" projectFiles="true">
-                      <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/trace/trace.pb-c.c</itemPath>
-                    </logicalFolder>
-                    <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/api.pb-c.c</itemPath>
-                    <itemPath>../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork/ttn/api/api.pb-c.h</itemPath>
-                  </logicalFolder>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-            <itemPath>../vendor/ttn-gateway-connector/src/connector.c</itemPath>
-          </logicalFolder>
-        </logicalFolder>
         <itemPath>../src/app.c</itemPath>
         <itemPath>../src/main.c</itemPath>
         <itemPath>../src/app_ble.c</itemPath>
@@ -692,7 +574,6 @@
         <itemPath>../src/app_wifi.c</itemPath>
         <itemPath>../src/subsystem_controller.c</itemPath>
         <itemPath>../vendor/json-builder/json-builder.c</itemPath>
-        <itemPath>../src/app_mqtt.c</itemPath>
         <itemPath>../vendor/jsmn/jsmn.c</itemPath>
         <itemPath>../src/app_http_ttn.c</itemPath>
         <itemPath>../src/app_activation.c</itemPath>
@@ -1136,7 +1017,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../vendor/harmony/framework;../vendor/jsmn;../vendor/json-builder;../vendor/GenericRecorderLibSrc/Include;../vendor/ttn-gateway-connector/src;../vendor/protobuf-c;../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork;../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/protobuf;../vendor/paho.mqtt.embedded-c/MQTTPacket/src;../vendor/paho.mqtt.embedded-c/MQTTClient-C/src;../vendor/mbedtls/include;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1;../src/TTN_Gateway_v1;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1/framework;../vendor/harmony/framework/driver/wifi/mrf24wn/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver_extension;../vendor/harmony/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../vendor/harmony/third_party/rtos/FreeRTOS/Source/include;../vendor/gateway-module-interface/lib"/>
+                  value="../src;../vendor/harmony/framework;../vendor/jsmn;../vendor/json-builder;../vendor/GenericRecorderLibSrc/Include;../vendor/protobuf-c;../vendor/mbedtls/include;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1;../src/TTN_Gateway_v1;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1/framework;../vendor/harmony/framework/driver/wifi/mrf24wn/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver_extension;../vendor/harmony/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../vendor/harmony/third_party/rtos/FreeRTOS/Source/include;../vendor/gateway-module-interface/lib"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1152,7 +1033,6 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
-        <appendMe value="-DMQTT_TASK -G 0"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
@@ -1164,7 +1044,7 @@
         <property key="expand-macros" value="false"/>
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor"
-                  value="../src;../vendor/harmony/framework;../vendor/jsmn;../vendor/json-builder;../vendor/GenericRecorderLibSrc/Include;../vendor/ttn-gateway-connector/src;../vendor/protobuf-c;../vendor/ttn-gateway-connector/src/github.com/TheThingsNetwork;../vendor/ttn-gateway-connector/src/github.com/gogo/protobuf/protobuf;../vendor/paho.mqtt.embedded-c/MQTTPacket/src;../vendor/paho.mqtt.embedded-c/MQTTClient-C/src;../vendor/mbedtls/include;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1;../src/TTN_Gateway_v1;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1/framework;../vendor/harmony/framework/driver/wifi/mrf24wn/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver_extension;../vendor/harmony/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../vendor/harmony/third_party/rtos/FreeRTOS/Source/include;../vendor/gateway-module-interface/lib"/>
+                  value="../src;../vendor/harmony/framework;../vendor/jsmn;../vendor/json-builder;../vendor/GenericRecorderLibSrc/Include;../vendor/protobuf-c;../vendor/mbedtls/include;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1;../src/TTN_Gateway_v1;../vendor/harmony/framework;../src/system_config/TTN_Gateway_v1/framework;../vendor/harmony/framework/driver/wifi/mrf24wn/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver/include;../vendor/harmony/framework/driver/wifi/mrf24wn/wireless_driver_extension;../vendor/harmony/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../vendor/harmony/third_party/rtos/FreeRTOS/Source/include;../vendor/gateway-module-interface/lib"/>
         <property key="false-conditionals" value="false"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>

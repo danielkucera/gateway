@@ -11,7 +11,6 @@
 #include "app_serialflash.h"
 #include "app_ota.h"
 #include "helper_wdt.h"
-#include "app_mqtt.h"
 #include "ssm_button.h"
 #include "error_messages.h"
 
@@ -158,7 +157,6 @@ void APP_Initialize(void)
     SSMWaitForInternet_Initialize();
 
     APP_BLE_Initialize();
-    APP_MQTT_Initialize();
 
     /* Place the App state machine in its initial state. */
     _state = APP_STATE_MOUNT_FS;
@@ -186,9 +184,7 @@ static void _changeState(STATE_t newState)
             firmwareCheckStartTick = SYS_TMR_TickCountGet();
             break;
         case APP_STATE_OPERATIONAL:
-            appData.mqtt_connection_state = false;
             _statSet(LED_MQTT, OFF);
-            APP_MQTT_Reset();
             break;
         case APP_STATE_WAIT_FOR_INTERNET_WHILE_OPERATIONAL:
             break;
@@ -564,51 +560,11 @@ void APP_Tasks(void)
         }
 
         case APP_STATE_OPERATIONAL:
-            if(!appData.mqtt_connection_state)
-            {
-                if(SYS_TMR_TickCountGet() - ledBinkStartTick >= SYS_TMR_TickCounterFrequencyGet() / BLINK_FREQ_SLOW)
-                {
-                    ledBinkStartTick = SYS_TMR_TickCountGet();
-                    _statToggle(LED_MQTT);
-                }
-            }
             if(hasNetworkChanged())
             {
                 SYS_PRINT("\r\nMAIN: Network changed\r\n");
                 ErrorMessageWarning_Set(ERROR_MESSAGE_WARNING_NETWORK_CHANGE);
                 _changeState(APP_STATE_WAIT_FOR_INTERNET_WHILE_OPERATIONAL);
-            }
-            else if(APP_MQTT_GET_STATE() == APP_TTNGWC_ERROR)
-            {
-                SYS_PRINT("\r\nMAIN: MQTT error\r\n");
-                ErrorMessageWarning_Set(ERROR_MESSAGE_WARNING_MQTT_COMMUNICATION_FAILURE);
-                _changeState(APP_STATE_WAIT_FOR_INTERNET_WHILE_OPERATIONAL);
-            }
-            else if(!appData.mqtt_connection_state && APP_MQTT_GET_STATE() == APP_TTNGWC_IDLE)
-            {
-                appData.mqtt_connection_state = true;
-                _statSet(LED_MQTT, ON);
-                SYS_PRINT("\r\n*************************");
-                SYS_PRINT("\r\nMAIN: Gateway bridging");
-                SYS_PRINT("\r\n*************************\r\n\r\n");
-            }
-            if(SYS_TMR_TickCountGet() - firmwareCheckStartTick >=
-               SYS_TMR_TickCounterFrequencyGet() * FIRMWARE_CHECK_TIMEOUT)
-            {
-                /* TODO: change the main flow to download the config and checksum every X hours
-                        The current implementation just reboots the gateway */
-                SYS_PRINT("\r\nMAIN: Rebooting gateway for firmware update check\r\n");
-                WatchDogReset();
-                //_changeState(APP_STATE_DOWNLOAD_FIRMWARE);
-            }
-            if(APP_LORA_HAS_CORRECT_FREQ_PLAN() != 1)
-            {
-                /* Toggle the activation led to signal that something is wrong */
-                if(SYS_TMR_TickCountGet() - ledBinkStartTick >= SYS_TMR_TickCounterFrequencyGet() / BLINK_FREQ_FAST)
-                {
-                    ledBinkStartTick = SYS_TMR_TickCountGet();
-                    _statToggle(LED_ACTIVATION);
-                }
             }
             break;
 
@@ -696,7 +652,7 @@ void APP_Tasks(void)
         case APP_STATE_OPERATIONAL:
             APP_ETH_Tasks();
             APP_WIFI_Tasks();
-            APP_MQTT_Tasks();
+            //APP_PKTFWD_Tasks();
             break;
         case APP_STATE_WAIT_FOR_INTERNET_WHILE_OPERATIONAL:
             APP_ETH_Tasks();

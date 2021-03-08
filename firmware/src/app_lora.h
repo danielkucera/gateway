@@ -21,7 +21,6 @@ extern "C"
 #endif
 
 #include "app.h"
-#include "connector.h"
 
 /* Provide C++ Compatibility */
 #ifdef __cplusplus

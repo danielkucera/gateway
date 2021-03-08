@@ -3,7 +3,6 @@
 // the LICENSE file.
 
 #include "app.h"
-#include "app_mqtt.h"
 #include "subsystem_controller.h"
 #include "tcpip/sntp.h"
 

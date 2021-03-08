@@ -11,8 +11,6 @@
 #include "app.h"
 #include "subsystem_controller.h"
 
-#include "connector.h"
-
 /* ************************************************************************** */
 /* ************************************************************************** */
 /* Section: File Scope or Global Data                                         */

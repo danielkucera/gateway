@@ -109,8 +109,6 @@ static uint32_t lastAckTime   = 0;
     (timeout_timer > SYS_TMR_TickCountGet() || \
      ((SYS_TMR_TickCountGet() - timeout_timer) >= (SYS_TMR_TickCounterFrequencyGet() * X)))
 
-#include "Harmony/MQTTHarmony.h"
-
 static bool initLora(void)
 {
     bool init_complete = false;
