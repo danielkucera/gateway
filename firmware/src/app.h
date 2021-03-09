@@ -298,23 +298,15 @@ extern "C"
         APP_BLE_IDLE
     } APP_STATES_BLE;
 
-    /* MQTT */
+    /* PKTFWD */
     typedef enum
     {
-        APP_TTNGWC_INIT,
-        APP_TTNGWC_FETCH_SERVER_IP,
-        APP_TTNGWC_FETCHING_SERVER_IP,
-        APP_TTNGWC_RESET,
-        APP_TTNGWC_SOCKET_SETUP,
-        APP_TTNGWC_SOCKET_CHECK,
-        APP_TTNGWC_SOCKET_WAIT_TLS,
-        APP_TTNGWC_CONNECT,
-        APP_TTNGWC_ERROR,
-        APP_TTNGWC_IDLE,
-        APP_TTNGWC_SEND_STATUS,
-        APP_TTNGWC_SEND_PACKET,
-        APP_TTNGWC_WAIT_ON_DNS
-    } APP_STATES_MQTT;
+	APP_PKTFWD_INIT,
+	APP_PKTFWD_RESOLVE,
+	APP_PKTFWD_CONNECT,
+	APP_PKTFWD_PROCESS,
+	APP_PKTFWD_FAILED
+    } APP_STATES_PKTFWD;
 
     // *****************************************************************************
     /* Application Data
@@ -412,6 +404,14 @@ extern "C"
         DRV_HANDLE     USARTHandle;
     } APP_DATA_BLE;
 
+    /* PKTFWD */
+    typedef struct
+    {
+        APP_STATES_PKTFWD state;
+	int               rx_pkt_cnt;
+	int               tx_pkt_cnt;
+    } APP_DATA_PKTFWD;
+
     typedef struct IFChain
     {
         bool     enable;
@@ -463,6 +463,8 @@ extern "C"
         char frequency_plan[65];
         char frequency_plan_url[256];
         char firmware_url[256];
+        char pktfwd_server[256];
+        int  pktfwd_port;
         bool auto_update;
 
         ERROR error;
@@ -590,7 +592,6 @@ extern "C"
     void APP_SELFTEST_Tasks(void);
 
     bool    GatewayIsOperational(void);
-    uint8_t APP_MQTT_GET_STATE();
     bool    APP_WIFI_Has_LinkAP(void);
     bool    APP_WIFI_Has_LinkINFRA(void);
     bool    APP_ETH_Has_Link(void);

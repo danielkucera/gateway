@@ -10,6 +10,7 @@
 #include "app_http_ttn.h"
 #include "app_serialflash.h"
 #include "app_ota.h"
+#include "app_pktfwd.h"
 #include "helper_wdt.h"
 #include "ssm_button.h"
 #include "error_messages.h"
@@ -242,6 +243,7 @@ static void _changeState(STATE_t newState)
             _statSet(LED_MQTT, OFF); // will be flashing, and kept on once MQTT connection is made
             _statSet(LED_ACTIVITY, OFF);
             rememberNetwork();
+	    APP_PKTFWD_Init();
             break;
         case APP_STATE_WAIT_FOR_INTERNET_WHILE_OPERATIONAL:
             ledBinkStartTick = SYS_TMR_TickCountGet();
@@ -652,7 +654,7 @@ void APP_Tasks(void)
         case APP_STATE_OPERATIONAL:
             APP_ETH_Tasks();
             APP_WIFI_Tasks();
-            //APP_PKTFWD_Tasks();
+            APP_PKTFWD_Tasks();
             break;
         case APP_STATE_WAIT_FOR_INTERNET_WHILE_OPERATIONAL:
             APP_ETH_Tasks();

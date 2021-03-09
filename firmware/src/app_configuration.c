@@ -317,6 +317,15 @@ static int _parseSettings(const char* JSON_STRING)
             }
             i++;
         }
+        else if(jsoneq(JSON_STRING, &tokens[i], "pktfwd_server") == 0)
+        {
+            if(!_storeString(JSON_STRING, &tokens[i + 1], appGWActivationData.configuration.pktfwd_server,
+                             sizeof(appGWActivationData.configuration.pktfwd_server)))
+            {
+                SYS_PRINT("CONF: Failed to store received pktfwd_server\r\n");
+	    }
+            i++;
+        }
         else if(jsoneq(JSON_STRING, &tokens[i], "router") == 0)
         {
             const char* nhost;

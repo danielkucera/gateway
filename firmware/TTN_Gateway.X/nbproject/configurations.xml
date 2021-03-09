@@ -32,6 +32,7 @@
         <itemPath>../src/app_configuration.h</itemPath>
         <itemPath>../src/app_frequencyplan.h</itemPath>
         <itemPath>../src/lora.h</itemPath>
+        <itemPath>../src/app_pktfwd.h</itemPath>
         <itemPath>../src/app_lora.h</itemPath>
         <itemPath>../vendor/jsmn/jsmn.h</itemPath>
         <itemPath>../vendor/json-builder/json-builder.h</itemPath>
@@ -574,6 +575,7 @@
         <itemPath>../src/app_wifi.c</itemPath>
         <itemPath>../src/subsystem_controller.c</itemPath>
         <itemPath>../vendor/json-builder/json-builder.c</itemPath>
+        <itemPath>../src/app_pktfwd.c</itemPath>
         <itemPath>../vendor/jsmn/jsmn.c</itemPath>
         <itemPath>../src/app_http_ttn.c</itemPath>
         <itemPath>../src/app_activation.c</itemPath>

@@ -53,6 +53,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "json-builder.h"
 
 #include "app_activation.h"
+#include "app_pktfwd.h"
 #include "bootloader_version.h"
 #include "version.h"
 #include "time.h"
@@ -1289,7 +1290,7 @@ void TCPIP_HTTP_Print_gwstatus(HTTP_CONN_HANDLE connHandle)
 
         json_object_push(obj, "connbroker", json_boolean_new(GatewayIsOperational()));
         uint32_t pup = 0, pdown = 0;
-        //PKTFWD getPacketCount(&pup, &pdown);
+        getPacketCount(&pup, &pdown);
         json_object_push(obj, "pup", json_integer_new(pup));
         json_object_push(obj, "pdown", json_integer_new(pdown));
 
