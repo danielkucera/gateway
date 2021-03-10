@@ -764,6 +764,7 @@ extern "C" {
 
 /*** ICMPv4 Client Configuration ***/
 #define TCPIP_STACK_USE_ICMP_CLIENT
+#define TCPIP_STACK_USE_BASE64_ENCODE
 #define TCPIP_ICMP_CLIENT_USER_NOTIFICATION   true
 
 
