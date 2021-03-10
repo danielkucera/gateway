@@ -172,7 +172,7 @@ int formatUplinkPacket(loraRXPacket* pkt, char* frame)
 	\"lsnr\":%.2f,\
 	\"size\":%d,\
 	\"data\":\"%s\"\
-	}]}", timestamp, pkt->timestamp, pkt->rf_chain, pkt->frequency /(1000000), pkt->frequency % (1000000), datarate, coderate, pkt->rssi, pkt->snr_average, data_len, payload);
+	}]}", timestamp, pkt->timestamp, pkt->rf_chain, pkt->frequency /(1000000), pkt->frequency % (1000000), datarate, coderate, pkt->rssi, pkt->snr_average, data_len, payload) + 12;
 }
 
 int sendUplink()
