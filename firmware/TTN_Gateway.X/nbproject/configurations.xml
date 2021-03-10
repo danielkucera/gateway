@@ -10,7 +10,6 @@
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
               <logicalFolder name="f1" displayName="net" projectFiles="true">
                 <logicalFolder name="f1" displayName="pres" projectFiles="true">
-                  <itemPath>../src/system_config/TTN_Gateway_v1/framework/net/pres/certs_test.h</itemPath>
                   <itemPath>../src/system_config/TTN_Gateway_v1/framework/net/pres/net_pres_enc_glue.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -107,7 +106,6 @@
             <itemPath>../vendor/harmony/framework/crypto/src/visibility.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/asn_public.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/camellia.h</itemPath>
-            <itemPath>../vendor/harmony/framework/crypto/src/certs_test.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/dh.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/dsa.h</itemPath>
             <itemPath>../vendor/harmony/framework/crypto/src/ec.h</itemPath>
